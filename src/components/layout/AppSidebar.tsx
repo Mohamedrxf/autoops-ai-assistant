@@ -26,7 +26,7 @@ export function AppSidebar() {
   const location = useLocation();
 
   return (
-    <Sidebar collapsible="icon" className="border-r border-border/50">
+    <Sidebar collapsible="icon" className="border-r border-border/20 backdrop-blur-md" style={{ background: 'hsla(222, 47%, 5%, 0.25)' }}>
       <SidebarContent className="pt-4">
         {/* Logo */}
         <div className="px-4 pb-6 pt-2 flex items-center gap-2.5">
