@@ -1,7 +1,7 @@
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "./AppSidebar";
 import { AppHeader } from "./AppHeader";
-import bgVideo from "/videos/jarvis-bg.mp4.asset.json";
+import bgVideo from "../.././../public/videos/jarvis-bg.mp4.asset.json";
 
 interface AppLayoutProps {
   children: React.ReactNode;
