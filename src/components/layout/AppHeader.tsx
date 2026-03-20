@@ -7,7 +7,7 @@ interface AppHeaderProps {
 
 export function AppHeader({ title }: AppHeaderProps) {
   return (
-    <header className="h-14 flex items-center justify-between px-4 border-b border-border/40 backdrop-blur-sm bg-background/30">
+    <header className="h-14 flex items-center justify-between px-4 border-b border-border/20 backdrop-blur-md bg-background/15">
       <div className="flex items-center gap-3">
         <SidebarTrigger className="text-muted-foreground hover:text-foreground" />
         <h1 className="text-lg font-semibold text-foreground">{title}</h1>

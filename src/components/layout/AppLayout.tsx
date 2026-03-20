@@ -38,7 +38,7 @@ export function AppLayout({ children, title }: AppLayoutProps) {
 
         <div className="flex-1 flex flex-col relative z-10">
           <AppHeader title={title} />
-          <main className="flex-1 p-6 overflow-auto">
+          <main className="flex-1 p-6 overflow-auto" style={{ textShadow: '0 1px 6px rgba(0,0,0,0.8)' }}>
             {children}
           </main>
         </div>
