@@ -22,7 +22,7 @@ export function AppLayout({ children, title }: AppLayoutProps) {
             className="w-full h-full object-cover"
             style={{ opacity: 0.3 }}
           >
-            <source src={bgVideo.url} type="video/mp4" />
+            <source src={bgVideoUrl} type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-background/70" />
         </div>
