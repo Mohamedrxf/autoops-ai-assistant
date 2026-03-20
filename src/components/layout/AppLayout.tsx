@@ -1,4 +1,4 @@
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "./AppSidebar";
 import { AppHeader } from "./AppHeader";
 const bgVideoUrl = "/videos/jarvis-bg.mp4";
@@ -12,7 +12,7 @@ export function AppLayout({ children, title }: AppLayoutProps) {
   return (
     <SidebarProvider>
       <div className="min-h-screen flex w-full relative">
-        {/* Background Video */}
+        {/* Background Video — more visible */}
         <div className="fixed inset-0 z-0">
           <video
             autoPlay
@@ -20,11 +20,18 @@ export function AppLayout({ children, title }: AppLayoutProps) {
             muted
             playsInline
             className="w-full h-full object-cover"
-            style={{ opacity: 0.3 }}
+            style={{ opacity: 0.55 }}
           >
             <source src={bgVideoUrl} type="video/mp4" />
           </video>
-          <div className="absolute inset-0 bg-background/70" />
+          {/* Gradient overlay: darker at top/bottom for text, lighter in middle for video visibility */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(180deg, hsla(222, 47%, 6%, 0.75) 0%, hsla(222, 47%, 6%, 0.45) 30%, hsla(222, 47%, 6%, 0.40) 60%, hsla(222, 47%, 6%, 0.70) 100%)",
+            }}
+          />
         </div>
 
         <AppSidebar />
