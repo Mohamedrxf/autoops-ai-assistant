@@ -20,7 +20,7 @@ export function AppLayout({ children, title }: AppLayoutProps) {
             muted
             playsInline
             className="w-full h-full object-cover"
-            style={{ opacity: 0.55 }}
+            style={{ opacity: 0.65 }}
           >
             <source src={bgVideoUrl} type="video/mp4" />
           </video>
