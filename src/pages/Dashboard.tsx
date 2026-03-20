@@ -20,23 +20,23 @@ const recentActivity = [
 export default function Dashboard() {
   return (
     <AppLayout title="Dashboard">
-      <div className="max-w-7xl mx-auto space-y-6">
+      <div className="max-w-7xl mx-auto space-y-8">
         {/* KPI Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {kpis.map((kpi, i) => (
             <div
               key={kpi.label}
-              className="jarvis-card p-5 transition-all duration-300"
+              className="p-5 transition-all duration-300 border-b border-primary/10"
               style={{ animation: `float-up 0.5s ease-out ${i * 0.1}s forwards`, opacity: 0 }}
             >
               <div className="flex items-start justify-between">
                 <div>
-                  <p className="text-xs font-medium text-muted-foreground uppercase tracking-wider">{kpi.label}</p>
-                  <p className="text-3xl font-bold mt-1 jarvis-glow-text">{kpi.value}</p>
-                  <p className="text-xs text-muted-foreground mt-1">{kpi.trend}</p>
+                  <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider" style={{ textShadow: '0 1px 6px rgba(0,0,0,0.8)' }}>{kpi.label}</p>
+                  <p className="text-4xl font-bold mt-2 jarvis-glow-text">{kpi.value}</p>
+                  <p className="text-xs text-muted-foreground mt-1.5" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.7)' }}>{kpi.trend}</p>
                 </div>
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                  <kpi.icon className="w-5 h-5 text-primary" />
+                <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: 'hsla(199, 89%, 48%, 0.1)' }}>
+                  <kpi.icon className="w-5 h-5 text-primary" style={{ filter: 'drop-shadow(0 0 6px hsl(199, 89%, 48%))' }} />
                 </div>
               </div>
             </div>
@@ -44,26 +44,23 @@ export default function Dashboard() {
         </div>
 
         {/* Recent Activity */}
-        <div
-          className="jarvis-card p-6"
-          style={{ animation: "float-up 0.5s ease-out 0.4s forwards", opacity: 0 }}
-        >
-          <h2 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-4">Recent Agent Activity</h2>
+        <div style={{ animation: "float-up 0.5s ease-out 0.4s forwards", opacity: 0 }}>
+          <h2 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-5" style={{ textShadow: '0 1px 8px rgba(0,0,0,0.8)' }}>Recent Agent Activity</h2>
           <div className="space-y-1">
             {recentActivity.map((item, i) => (
               <div
                 key={i}
-                className="flex items-start gap-3 p-3 rounded-lg hover:bg-secondary/30 transition-colors duration-200"
+                className="flex items-start gap-3 p-3 rounded-lg hover:bg-white/[0.03] transition-colors duration-200"
               >
-                <div className="w-8 h-8 rounded-lg bg-secondary/50 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <item.icon className={`w-4 h-4 ${item.color}`} />
+                <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5" style={{ background: 'hsla(217, 33%, 17%, 0.3)' }}>
+                  <item.icon className={`w-4 h-4 ${item.color}`} style={{ filter: 'drop-shadow(0 0 4px currentColor)' }} />
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2">
-                    <span className="text-sm font-medium text-foreground">{item.agent}</span>
-                    <span className="text-xs text-muted-foreground">{item.time}</span>
+                    <span className="text-sm font-semibold text-foreground" style={{ textShadow: '0 1px 6px rgba(0,0,0,0.8)' }}>{item.agent}</span>
+                    <span className="text-xs text-muted-foreground" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.6)' }}>{item.time}</span>
                   </div>
-                  <p className="text-sm text-muted-foreground mt-0.5">{item.action}</p>
+                  <p className="text-sm text-muted-foreground mt-0.5" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.6)' }}>{item.action}</p>
                 </div>
               </div>
             ))}

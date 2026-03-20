@@ -14,42 +14,42 @@ const logs = [
   { timestamp: "2025-10-15 11:16:00", agent: "Escalation Agent", action: "Escalated to manager", reason: "At-risk task triggered escalation policy: notify owner + project manager when completion < 50% within 48h of deadline", icon: Bell },
 ];
 
+const textShadow = '0 1px 6px rgba(0,0,0,0.8)';
+
 export default function AuditLogs() {
   return (
     <AppLayout title="Audit Logs">
-      <div className="max-w-7xl mx-auto">
-        <div className="jarvis-card overflow-hidden" style={{ animation: "float-up 0.5s ease-out forwards", opacity: 0 }}>
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="border-b border-border/30">
-                  <th className="text-left p-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Timestamp</th>
-                  <th className="text-left p-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Agent</th>
-                  <th className="text-left p-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Action</th>
-                  <th className="text-left p-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Reason (AI Explanation)</th>
+      <div className="max-w-7xl mx-auto" style={{ animation: "float-up 0.5s ease-out forwards", opacity: 0 }}>
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="border-b border-primary/15">
+                <th className="text-left p-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground" style={{ textShadow }}>Timestamp</th>
+                <th className="text-left p-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground" style={{ textShadow }}>Agent</th>
+                <th className="text-left p-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground" style={{ textShadow }}>Action</th>
+                <th className="text-left p-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground" style={{ textShadow }}>Reason (AI Explanation)</th>
+              </tr>
+            </thead>
+            <tbody>
+              {logs.map((log, i) => (
+                <tr
+                  key={i}
+                  className="border-b border-white/[0.04] hover:bg-white/[0.03] transition-colors duration-150"
+                  style={{ animation: `float-up 0.4s ease-out ${i * 0.04}s forwards`, opacity: 0 }}
+                >
+                  <td className="p-4 text-muted-foreground font-mono text-xs whitespace-nowrap" style={{ textShadow }}>{log.timestamp}</td>
+                  <td className="p-4">
+                    <div className="flex items-center gap-2">
+                      <log.icon className="w-3.5 h-3.5 text-primary" style={{ filter: 'drop-shadow(0 0 4px hsl(199, 89%, 48%))' }} />
+                      <span className="text-foreground font-semibold whitespace-nowrap" style={{ textShadow }}>{log.agent}</span>
+                    </div>
+                  </td>
+                  <td className="p-4 text-foreground whitespace-nowrap" style={{ textShadow }}>{log.action}</td>
+                  <td className="p-4 text-muted-foreground max-w-md" style={{ textShadow }}>{log.reason}</td>
                 </tr>
-              </thead>
-              <tbody>
-                {logs.map((log, i) => (
-                  <tr
-                    key={i}
-                    className="border-b border-border/20 hover:bg-secondary/20 transition-colors duration-150"
-                    style={{ animation: `float-up 0.4s ease-out ${i * 0.04}s forwards`, opacity: 0 }}
-                  >
-                    <td className="p-4 text-muted-foreground font-mono text-xs whitespace-nowrap">{log.timestamp}</td>
-                    <td className="p-4">
-                      <div className="flex items-center gap-2">
-                        <log.icon className="w-3.5 h-3.5 text-primary" />
-                        <span className="text-foreground font-medium whitespace-nowrap">{log.agent}</span>
-                      </div>
-                    </td>
-                    <td className="p-4 text-foreground whitespace-nowrap">{log.action}</td>
-                    <td className="p-4 text-muted-foreground max-w-md">{log.reason}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </AppLayout>

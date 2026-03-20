@@ -20,7 +20,7 @@ export function AppLayout({ children, title }: AppLayoutProps) {
             muted
             playsInline
             className="w-full h-full object-cover"
-            style={{ opacity: 0.55 }}
+            style={{ opacity: 0.65 }}
           >
             <source src={bgVideoUrl} type="video/mp4" />
           </video>
@@ -29,7 +29,7 @@ export function AppLayout({ children, title }: AppLayoutProps) {
             className="absolute inset-0"
             style={{
               background:
-                "linear-gradient(180deg, hsla(222, 47%, 6%, 0.50) 0%, hsla(222, 47%, 6%, 0.20) 30%, hsla(222, 47%, 6%, 0.15) 60%, hsla(222, 47%, 6%, 0.45) 100%)",
+                "linear-gradient(180deg, hsla(222, 47%, 6%, 0.35) 0%, hsla(222, 47%, 6%, 0.10) 30%, hsla(222, 47%, 6%, 0.08) 60%, hsla(222, 47%, 6%, 0.30) 100%)",
             }}
           />
         </div>

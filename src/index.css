@@ -68,75 +68,87 @@
 
 @layer components {
   .jarvis-card {
-    @apply rounded-xl border;
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-    background: hsla(222, 41%, 10%, 0.3);
-    border-color: hsla(var(--jarvis-card-border));
-    box-shadow: 0 0 24px hsla(var(--jarvis-glow) / 0.06), 0 4px 20px rgba(0,0,0,0.2);
+    @apply rounded-xl;
+    background: transparent;
+    border: none;
+    box-shadow: none;
   }
 
   .jarvis-card:hover {
-    background: hsla(222, 41%, 10%, 0.4);
-    border-color: hsla(var(--jarvis-glow) / 0.3);
-    box-shadow: 0 0 30px hsla(var(--jarvis-glow) / 0.1), 0 8px 24px rgba(0,0,0,0.3);
+    background: transparent;
   }
 
   .jarvis-glow-text {
     color: hsl(var(--jarvis-glow));
-    text-shadow: 0 0 20px hsla(var(--jarvis-glow) / 0.5);
+    text-shadow: 0 0 24px hsla(var(--jarvis-glow) / 0.6), 0 0 8px hsla(var(--jarvis-glow) / 0.3);
   }
 
   .jarvis-badge {
     @apply px-2.5 py-0.5 rounded-full text-xs font-medium;
+    backdrop-filter: blur(8px);
   }
 
   .jarvis-badge-active {
     @apply jarvis-badge;
-    background: hsla(var(--jarvis-success) / 0.15);
+    background: hsla(var(--jarvis-success) / 0.2);
     color: hsl(var(--jarvis-success));
-    border: 1px solid hsla(var(--jarvis-success) / 0.3);
+    border: 1px solid hsla(var(--jarvis-success) / 0.4);
+    text-shadow: 0 0 8px hsla(var(--jarvis-success) / 0.4);
   }
 
   .jarvis-badge-warning {
     @apply jarvis-badge;
-    background: hsla(var(--jarvis-warning) / 0.15);
+    background: hsla(var(--jarvis-warning) / 0.2);
     color: hsl(var(--jarvis-warning));
-    border: 1px solid hsla(var(--jarvis-warning) / 0.3);
+    border: 1px solid hsla(var(--jarvis-warning) / 0.4);
+    text-shadow: 0 0 8px hsla(var(--jarvis-warning) / 0.4);
   }
 
   .jarvis-badge-info {
     @apply jarvis-badge;
-    background: hsla(var(--jarvis-info) / 0.15);
+    background: hsla(var(--jarvis-info) / 0.2);
     color: hsl(var(--jarvis-info));
-    border: 1px solid hsla(var(--jarvis-info) / 0.3);
+    border: 1px solid hsla(var(--jarvis-info) / 0.4);
+    text-shadow: 0 0 8px hsla(var(--jarvis-info) / 0.4);
   }
 
   .jarvis-badge-completed {
     @apply jarvis-badge;
-    background: hsla(var(--jarvis-success) / 0.15);
+    background: hsla(var(--jarvis-success) / 0.2);
     color: hsl(var(--jarvis-success));
+    text-shadow: 0 0 8px hsla(var(--jarvis-success) / 0.4);
   }
 
   .jarvis-badge-pending {
     @apply jarvis-badge;
-    background: hsla(var(--muted) / 0.5);
+    background: hsla(var(--muted) / 0.3);
     color: hsl(var(--muted-foreground));
   }
 
   .jarvis-badge-running {
     @apply jarvis-badge;
-    background: hsla(var(--jarvis-glow) / 0.15);
+    background: hsla(var(--jarvis-glow) / 0.2);
     color: hsl(var(--jarvis-glow));
-    border: 1px solid hsla(var(--jarvis-glow) / 0.3);
+    border: 1px solid hsla(var(--jarvis-glow) / 0.4);
+    text-shadow: 0 0 10px hsla(var(--jarvis-glow) / 0.5);
     animation: pulse-glow 2s ease-in-out infinite;
   }
 
   .jarvis-badge-delayed {
     @apply jarvis-badge;
-    background: hsla(var(--destructive) / 0.15);
+    background: hsla(var(--destructive) / 0.2);
     color: hsl(var(--destructive));
-    border: 1px solid hsla(var(--destructive) / 0.3);
+    border: 1px solid hsla(var(--destructive) / 0.4);
+    text-shadow: 0 0 8px hsla(var(--destructive) / 0.3);
+  }
+
+  /* Sidebar icon glow on hover */
+  .sidebar-icon-glow {
+    @apply transition-all duration-300;
+  }
+  .sidebar-icon-glow:hover .sidebar-glow-icon {
+    filter: drop-shadow(0 0 8px hsl(var(--jarvis-glow))) drop-shadow(0 0 16px hsla(var(--jarvis-glow) / 0.5));
+    color: hsl(var(--jarvis-glow));
   }
 }
 

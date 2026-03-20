@@ -33,6 +33,8 @@ const statusClass: Record<string, string> = {
   Delayed: "jarvis-badge-delayed",
 };
 
+const textShadow = '0 1px 6px rgba(0,0,0,0.8)';
+
 export default function Tasks() {
   const [tasks, setTasks] = useState<Task[]>(initialTasks);
   const [escalation, setEscalation] = useState<string | null>(null);
@@ -49,37 +51,37 @@ export default function Tasks() {
         {/* Escalation Alert */}
         {escalation && (
           <div
-            className="flex items-center gap-3 p-4 rounded-xl border border-destructive/30 bg-destructive/10"
-            style={{ animation: "float-up 0.3s ease-out forwards" }}
+            className="flex items-center gap-3 p-4 rounded-xl border border-destructive/30"
+            style={{ animation: "float-up 0.3s ease-out forwards", background: 'hsla(0, 72%, 51%, 0.08)', backdropFilter: 'blur(8px)' }}
           >
-            <AlertTriangle className="w-5 h-5 text-destructive flex-shrink-0" />
+            <AlertTriangle className="w-5 h-5 text-destructive flex-shrink-0" style={{ filter: 'drop-shadow(0 0 6px hsl(0, 72%, 51%))' }} />
             <div>
-              <p className="text-sm font-semibold text-destructive">Escalation Triggered</p>
-              <p className="text-xs text-muted-foreground">"{escalation}" has been marked as delayed. Escalation Agent has notified the project manager.</p>
+              <p className="text-sm font-semibold text-destructive" style={{ textShadow: '0 0 8px hsla(0, 72%, 51%, 0.4)' }}>Escalation Triggered</p>
+              <p className="text-xs text-muted-foreground" style={{ textShadow }}>"{escalation}" has been marked as delayed. Escalation Agent has notified the project manager.</p>
             </div>
           </div>
         )}
 
-        <div className="jarvis-card overflow-hidden" style={{ animation: "float-up 0.5s ease-out forwards", opacity: 0 }}>
+        <div style={{ animation: "float-up 0.5s ease-out forwards", opacity: 0 }}>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b border-border/30">
-                  <th className="text-left p-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Task</th>
-                  <th className="text-left p-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Owner</th>
-                  <th className="text-left p-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Priority</th>
-                  <th className="text-left p-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Deadline</th>
-                  <th className="text-left p-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Status</th>
-                  <th className="text-right p-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Action</th>
+                <tr className="border-b border-primary/15">
+                  <th className="text-left p-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground" style={{ textShadow }}>Task</th>
+                  <th className="text-left p-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground" style={{ textShadow }}>Owner</th>
+                  <th className="text-left p-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground" style={{ textShadow }}>Priority</th>
+                  <th className="text-left p-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground" style={{ textShadow }}>Deadline</th>
+                  <th className="text-left p-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground" style={{ textShadow }}>Status</th>
+                  <th className="text-right p-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground" style={{ textShadow }}>Action</th>
                 </tr>
               </thead>
               <tbody>
                 {tasks.map((task) => (
-                  <tr key={task.id} className="border-b border-border/20 hover:bg-secondary/20 transition-colors duration-150">
-                    <td className="p-4 font-medium text-foreground">{task.name}</td>
-                    <td className="p-4 text-muted-foreground">{task.owner}</td>
+                  <tr key={task.id} className="border-b border-white/[0.04] hover:bg-white/[0.03] transition-colors duration-150">
+                    <td className="p-4 font-semibold text-foreground" style={{ textShadow }}>{task.name}</td>
+                    <td className="p-4 text-muted-foreground" style={{ textShadow }}>{task.owner}</td>
                     <td className="p-4"><span className={priorityClass[task.priority]}>{task.priority}</span></td>
-                    <td className="p-4 text-muted-foreground text-mono text-xs">{task.deadline}</td>
+                    <td className="p-4 text-muted-foreground text-mono text-xs" style={{ textShadow }}>{task.deadline}</td>
                     <td className="p-4"><span className={statusClass[task.status]}>{task.status}</span></td>
                     <td className="p-4 text-right">
                       {task.status !== "Completed" && task.status !== "Delayed" && (
