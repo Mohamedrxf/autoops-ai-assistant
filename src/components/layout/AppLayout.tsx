@@ -29,7 +29,7 @@ export function AppLayout({ children, title }: AppLayoutProps) {
             className="absolute inset-0"
             style={{
               background:
-                "linear-gradient(180deg, hsla(222, 47%, 6%, 0.75) 0%, hsla(222, 47%, 6%, 0.45) 30%, hsla(222, 47%, 6%, 0.40) 60%, hsla(222, 47%, 6%, 0.70) 100%)",
+                "linear-gradient(180deg, hsla(222, 47%, 6%, 0.50) 0%, hsla(222, 47%, 6%, 0.20) 30%, hsla(222, 47%, 6%, 0.15) 60%, hsla(222, 47%, 6%, 0.45) 100%)",
             }}
           />
         </div>
