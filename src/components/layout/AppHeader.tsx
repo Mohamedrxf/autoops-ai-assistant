@@ -10,7 +10,7 @@ export function AppHeader({ title }: AppHeaderProps) {
     <header className="h-14 flex items-center justify-between px-4 border-b border-border/10 backdrop-blur-sm" style={{ background: 'hsla(222, 47%, 6%, 0.1)' }}>
       <div className="flex items-center gap-3">
         <SidebarTrigger className="text-muted-foreground hover:text-foreground" />
-        <h1 className="text-lg font-semibold text-foreground">{title}</h1>
+        <h1 className="text-lg font-semibold text-foreground" style={{ textShadow: '0 0 12px rgba(0,0,0,0.8), 0 0 4px rgba(0,0,0,0.5)' }}>{title}</h1>
       </div>
 
       <div className="flex items-center gap-4">
